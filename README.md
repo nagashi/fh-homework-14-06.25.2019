@@ -1,126 +1,75 @@
-# Homework 14 - Building gRPC client Part 2
+# <Project Name>
 
-## Due Date
+<Project Description>
 
-TBD
+This app powers <Project Name> located [here](Heroku Project URL)
 
-## Goals
+## Getting Started
 
-- The purpose of this homework is to extend Homework #13 by implementing
-  a Ruby gRPC client.
+## Software requirements
 
-## Readings and Resources
+- Rails 5.0.0 or higher
 
-GRPC - https://grpc.io
+- Ruby 2.3.1 or higher
 
-Ruby gRPC Quick Start - http://www.grpc.io/docs/quickstart/ruby.html
+- PostgreSQL 9.5.x or higher
 
-Option Parser - https://ruby-doc.org/stdlib-2.1.1/libdoc/optparse/rdoc/OptionParser.html
+## Navigate to the Rails application
 
-Ruby Language - http://www.ruby-lang.org/en/documentation/
+```
+$ cd /path/to/rails/application
+```
 
-## Setup
+## Set configuration files
 
-  - Create feature branch
+```
+$ cp config/database.yml.template config/database.yml
+$ cp config/initializers/mail.rb.template config/initializers/mail.rb
+```
 
-    $ cd homework-13
-    $ git checkout -b part-02-ruby-grpc-client
+Note:  You may need to edit the above files as necessary for your system.
 
-    Note: You'll be building off the code from Part (1).
+## Create the database
 
-  - Change to working directory
+ ```
+ $ pgstart
+ $ rake db:create
+ ```
 
-    ```
-    $ cd start
-    ```
+## Migrating and seeding the database
 
-  - Start The Server
+```
+$ rake db:migrate
+$ rake db:seed
+```
 
-    ```
-    $ node server.js
-    ```
+## Starting the local server
 
-  - Create Gemfile
+```
+$ rails server
 
-    ```
-    $ touch Gemfile
-    ```
+   or
 
-  - Required Gems
+$ rails s
+```
 
-    - add required gems to your gem file
+## Production Deployment
 
-      ```
-      gem 'grpc', '~> 1.2.5'
-      ```
+  ```
+  $ git push heroku master
+  $ heroku run rake db:migrate
+  ```
 
-  - Create Ruby client file
+## Support
 
-    ```
-    $ touch client.rb
-    ```
+Bug reports and feature requests can be filed with the rest for the Ruby on Rails project here:
 
-    Note:  You'll be adding your Ruby code to client.rb.
+* [File Bug Reports and Features](https://github.com/<user-name>/<project-repo>/issues)
 
-  - Writing the gRPC Client
+## License
 
-    - complete step (9) of the following using the Ruby language:
+<Project Name> is released under the [MIT license](https://mit-license.org).
 
-      https://codelabs.developers.google.com/codelabs/cloud-grpc/index.html
+## Copyright
 
-    - command line interface (CLI)
-
-      a) list
-
-        ```
-        $ ruby client.rb list
-        ```
-
-      b) insert
-
-        ```
-        $ ruby client.rb insert 2 "The Three Musketeers" "Alexandre Dumas"
-        ```
-
-      c) delete
-
-        ```
-        $ ruby client.rb delete 123
-        ```
-
-      d) list
-
-        ```
-        $ ruby client.rb list
-        ```
-
-      e) retrieve
-
-        ```
-        $ ruby client.rb get 2
-        ```
-
-      Note:  Your responses should be equal to the responses received from the
-             Node client.  Also, please see the `Option Parse` reference for
-             assisting with the building of your command line interface (CLI).
-
-## Deliverables
-
-  - push changes to Github
-
-    ```
-    $ git checkout part-02-ruby-grpc-client
-    $ git push
-    ```
-
-  - merge changes into the master branch and push to Github
-
-    ```
-    $ git checkout master
-    $ git merge part-02-ruby-grpc-client
-    $ git push
-    ```
-
-## Have Questions
-
-Please make a reasonable effort to complete the homework prior to our next session.  If you have any questions regarding this homework, please do send me a message via Slack.
+copyright:: (c) Copyright 2018 <First Name> <Last Name>. All Rights Reserved.
